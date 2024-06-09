@@ -62,7 +62,7 @@ function CreateBlog() {
   return (
     <div className=" text-slate-200 bg-slate-950 h-full pb-20">
       <div className=" md:px-28 px-4 py-4 md:pt-28">
-        <div className ={`${imgsuccess ? 'visible' : 'hidden'} text-center p-5 text-green-500`}>Picture Uploaded, click on update to see the updated blog.</div>
+        <div className ={`${imgsuccess ? 'visible' : 'hidden'} text-center p-5 text-green-500`}>Picture Uploaded, click on publish to see the updated blog.</div>
         <div className ={`${imgerr ? 'visible' : 'hidden'} text-center p-5 text-red-500`}>Couldn't upload picture, try again later</div>
 
         <img src={url} className=" md:h-[23rem] w-full h-[13rem]" />
