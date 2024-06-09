@@ -107,7 +107,7 @@ function CreateBlog() {
                 cols="30"
                 className=" w-full bg-slate-950 focus-visible: outline-none"
                 placeholder="Begin writing here.."
-                rows="10"
+                
                 {...register("blogText", {
                   required: {
                     value: true,
