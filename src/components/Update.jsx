@@ -116,7 +116,7 @@ function Update() {
                 className=" w-full bg-slate-950 focus-visible: outline-none"
                 placeholder="Begin writing here.."
                 defaultValue={post.blogText}
-                rows="10"
+                rows="20"
                 onChange={(e) => setValue("blogText", e.target.value)}
               ></textarea>
             </div>
