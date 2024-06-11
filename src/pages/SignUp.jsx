@@ -17,6 +17,8 @@ function SignUp({ setUserAutentication }){
     let response = await API.userSignup({email, password})
     if(response.isSuccess){
       setError('');
+      sessionStorage.setItem('AccessToken', `Bearer ${response.data.data.accessToken}`)
+      sessionStorage.setItem('RefreshToken', `Bearer ${response.data.data.refreshToken}`)
       setUserAutentication(true)
       dispatch(setEmail(response.data.data.currentuser))
       navigate('/');
