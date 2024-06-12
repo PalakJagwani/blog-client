@@ -15,7 +15,6 @@ function LogIn({ setUserAutentication }) {
   const mySubmitHandler = async (data) => {
     let response = await API.userLogin(data);
     if(response.isSuccess){
-      setError('')
       console.log(response)
       sessionStorage.setItem('AccessToken', `Bearer ${response.data.data.accessToken}`)
       sessionStorage.setItem('RefreshToken', `Bearer ${response.data.data.refreshToken}`)
