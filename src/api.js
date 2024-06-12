@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {API_NOTIFICATION_MESSAGES, SERVICE_URLS} from './config.js'
 import { getAccessToken, getType } from './utils/commonutils.js'
+import {setError} from './slice.js'
 
 const API_URL = 'https://blog-server-beta-seven.vercel.app'
 
@@ -36,6 +37,7 @@ const processResponse = (response) => {
     if(response?.status === 200){
         return {isSuccess : true, data : response.data}
     }else{
+        setError(response?.message)
         return {
             isSuccess : false,
             status : response?.status,
@@ -48,6 +50,7 @@ const processResponse = (response) => {
 const processError = (error) => {
     if(error.response){
         console.log("Response Error!")
+        setError(API_NOTIFICATION_MESSAGES.responseFailures.message)
         return {
             isFailure : true,
             mssg : API_NOTIFICATION_MESSAGES.responseFailures.message,
@@ -55,6 +58,7 @@ const processError = (error) => {
         }
     }else if(error.request){
         console.log("Request error!")
+        setError(API_NOTIFICATION_MESSAGES.requestFailures.message,)
         return {
             isFailure : true,
             mssg : API_NOTIFICATION_MESSAGES.requestFailures.message,
@@ -62,6 +66,7 @@ const processError = (error) => {
         }
     }else{
         console.log("Network Error!")
+        setError(API_NOTIFICATION_MESSAGES.networkErrors.message,)
         return {
             isFailure : true,
             mssg : API_NOTIFICATION_MESSAGES.networkErrors.message,

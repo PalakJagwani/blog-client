@@ -2,14 +2,15 @@ import {NavLink, useNavigate} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
 import {API} from '../api.js'
 import { useState } from 'react'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useState} from 'react-redux'
 import { setEmail } from '../slice.js'
 
 function LogIn({ setUserAutentication }) {
   const {register, handleSubmit, formState : {errors}} = useForm()
-  const [error, setError] = useState('err')
+  const error = useSelector((state) => state.error);
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
 
   const mySubmitHandler = async (data) => {
     let response = await API.userLogin(data);
@@ -21,9 +22,6 @@ function LogIn({ setUserAutentication }) {
       dispatch(setEmail(response.data.data.email))
       setUserAutentication(true)
       navigate('/')
-    }else if(response.isSuccess === false){
-      setError(response.msg)
-      console.log(response.msg);
     }
   }
 
