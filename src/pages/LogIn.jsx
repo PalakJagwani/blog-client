@@ -2,7 +2,7 @@ import {NavLink, useNavigate} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
 import {API} from '../api.js'
 import { useState } from 'react'
-import {useDispatch, useState} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { setEmail } from '../slice.js'
 
 function LogIn({ setUserAutentication }) {
