@@ -21,7 +21,7 @@ function LogIn({ setUserAutentication }) {
       dispatch(setEmail(response.data.data.email))
       setUserAutentication(true)
       navigate('/')
-    }else{
+    }else if(response.isSuccess === false){
       setError("Something went wrong")
     }
   }
