@@ -7,7 +7,7 @@ import { setEmail } from '../slice.js'
 
 function LogIn({ setUserAutentication }) {
   const {register, handleSubmit, formState : {errors}} = useForm()
-  const [error, setError] = useState('')
+  const [error, setError] = useState('err')
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
