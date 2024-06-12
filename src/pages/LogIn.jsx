@@ -22,8 +22,8 @@ function LogIn({ setUserAutentication }) {
       setUserAutentication(true)
       navigate('/')
     }else if(response.isSuccess === false){
-      setError(response.data.msg)
-      console.log(response.data.msg);
+      setError(response.msg)
+      console.log(response.msg);
     }
   }
 
